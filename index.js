@@ -3,7 +3,7 @@ require('dotenv').config()
 const path=require('path')
 const fs=require('fs')
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 const mongoose = require("mongoose");
 const { router } = require("./routes/posts");
 const cors = require("cors");
@@ -25,5 +25,3 @@ app.listen(port, () => {
 app.use('*',(req,res)=>{
   res.sendFile(path.resolve(__dirname,process.env.PUBLIC_DIR,'index.html'))
 })
-
-console.log('port is'+process.env.PORT+'public dir is '+process.env.PUBLIC_DIR+'url is '+process.env.MONGO_URL)
