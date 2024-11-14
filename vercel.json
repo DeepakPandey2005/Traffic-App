@@ -16,7 +16,9 @@
     ],
     "routes": [
       { "src": "/posts/(.*)", "dest": "/index.js" },
-      { "src": "/(.*)", "dest": "/dist/index.html" }
+      { "src": "/(.*)", "dest": "/dist/index.html" },
+      { "src": "/static(.*)", "dest": "/dist/static/$1" }
+
     ]
   }
   
