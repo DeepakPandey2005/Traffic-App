@@ -23,5 +23,5 @@ app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 app.use('*',(req,res)=>{
-  res.sendFile(path.resolve(__dirname,'dist','index.html'))
+  res.sendFile(path.resolve(__dirname,process.env.PUBLIC_DIR,'index.html'))
 })
