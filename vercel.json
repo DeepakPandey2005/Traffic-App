@@ -11,16 +11,38 @@
   ],
   "routes": [
     {
-      "src": "/posts/(.*)", 
-      "dest": "index.js"
+      "src": "/api/(.*)",  
+      "dest": "index.js",
+      "methods": ["GET", "POST", "PUT", "DELETE","PATCH"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE,PATCH",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization"
+      }
     },
     {
       "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|json))$",
       "dest": "dist/$1"
     },
     {
-      "src": "/(.*)",   
+      "src": "/(.*)",  
       "dest": "dist/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)", 
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT, DELETE,PATCH" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
+    },
+    {
+      "source": "/(.*)",  
+      "headers": [
+        { "key": "Cache-Control", "value": "max-age=0, must-revalidate" }
+      ]
     }
   ]
 }
