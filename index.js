@@ -25,3 +25,5 @@ app.listen(port, () => {
 app.use('*',(req,res)=>{
   res.sendFile(path.resolve(__dirname,process.env.PUBLIC_DIR,'index.html'))
 })
+
+console.log('port is'+process.env.PORT+'public dir is '+process.env.PUBLIC_DIR+'url is '+process.env.MONGO_URL)
