@@ -14,7 +14,7 @@ app.use(express.static(path.resolve(__dirname,process.env.PUBLIC_DIR)));
 
 main().catch((err) => console.log(err));
 async function main() {
-  mongoose.connect( "mongodb+srv://DeepakP05:3QDOpLhvT6DxPkiO@cluster0.yhzmu.mongodb.net/Traffic_app ");
+  mongoose.connect(process.env.MONGO_URL);
 }
 
 
